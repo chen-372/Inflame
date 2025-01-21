@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/dodgeCDsign.gd" type="Script" id=2]
+[ext_resource path="res://UI/DodgeCDsign.png" type="Texture" id=3]
+
+[node name="DodgeCD" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 0.780392, 0.909804, 1 )
+margin_left = 7.62939e-06
+margin_right = 117.0
+margin_bottom = 109.0
+rect_scale = Vector2( 0.391341, 0.397372 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="TextureRect"]
+modulate = Color( 0.14902, 0.14902, 0.14902, 0.717647 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+fill_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureRect"]
+margin_left = 28.7409
+margin_top = 84.7405
+margin_right = 72.7406
+margin_bottom = 98.7405
+rect_scale = Vector2( 2.11263, 2.11263 )
+text = "0.0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="TextureRect"]
+margin_left = 4.33869
+margin_top = 65.069
+margin_right = 19.3387
+margin_bottom = 79.069
+rect_scale = Vector2( 3.89754, 3.89754 )
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}

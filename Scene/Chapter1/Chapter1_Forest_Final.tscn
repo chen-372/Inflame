@@ -1,0 +1,160 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Effect/GlowingDissolve.tres" type="Shader" id=1]
+[ext_resource path="res://Background/SG014_B002_C_Kaki's cave_INT_altar.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/TestingMonster2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/SavingPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/WorldBasic.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy/TestingMonster.tscn" type="PackedScene" id=6]
+[ext_resource path="res://NPC/MagicFire.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[node name="World" type="Node2D"]
+
+[node name="WorldBasic" parent="." instance=ExtResource( 5 )]
+local_current_level = "res://Scene/Chapter1/Chapter1_Forest_Final.tscn"
+
+[node name="Background" parent="WorldBasic/Backdrop" index="0"]
+modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
+position = Vector2( 1665.77, 653.896 )
+scale = Vector2( 1.90402, 1.87375 )
+texture = ExtResource( 2 )
+
+[node name="Player" parent="WorldBasic/YSort" index="0"]
+position = Vector2( 232, 1504 )
+
+[node name="TestingMonster" parent="WorldBasic/YSort/Enemy" index="0" instance=ExtResource( 3 )]
+position = Vector2( 2512, 800 )
+scale = Vector2( 1.5, 1.5 )
+acceleration = 1200
+max_speed = 1300
+retreat_speed = -100
+is_constant = true
+
+[node name="Sprite" parent="WorldBasic/YSort/Enemy/TestingMonster" index="0"]
+modulate = Color( 0.247059, 0.2, 1, 1 )
+material = SubResource( 1 )
+position = Vector2( 24, 24 )
+scale = Vector2( 0.528376, 0.528376 )
+
+[node name="CollisionShape2D" parent="WorldBasic/YSort/Enemy/TestingMonster" index="1"]
+position = Vector2( 24, 16 )
+
+[node name="Hurtbox" parent="WorldBasic/YSort/Enemy/TestingMonster" index="2"]
+position = Vector2( 30.8857, 19.484 )
+
+[node name="WanderController" parent="WorldBasic/YSort/Enemy/TestingMonster" index="3"]
+visible = false
+
+[node name="Stats" parent="WorldBasic/YSort/Enemy/TestingMonster" index="4"]
+max_health = 10.0
+magical_resistance = 0.1
+physical_resistance = 1.0
+
+[node name="PlayerDetectionZone" parent="WorldBasic/YSort/Enemy/TestingMonster" index="5"]
+position = Vector2( 32.7578, 18.8988 )
+
+[node name="SoftCollision" parent="WorldBasic/YSort/Enemy/TestingMonster" index="6"]
+position = Vector2( 28.9785, 12.5992 )
+
+[node name="MagicFire" parent="WorldBasic/YSort/Enemy/TestingMonster" instance=ExtResource( 7 )]
+position = Vector2( -116.397, 28.6442 )
+scale = Vector2( 0.666667, 0.666667 )
+
+[node name="MagicFire3" parent="WorldBasic/YSort/Enemy/TestingMonster" instance=ExtResource( 7 )]
+position = Vector2( 20.7584, -144.187 )
+scale = Vector2( 0.666667, 0.666667 )
+
+[node name="MagicFire2" parent="WorldBasic/YSort/Enemy/TestingMonster" instance=ExtResource( 7 )]
+position = Vector2( 161.085, 27.0585 )
+scale = Vector2( 0.666667, 0.666667 )
+
+[node name="TestingMonster2" parent="WorldBasic/YSort/Enemy" index="1" instance=ExtResource( 6 )]
+position = Vector2( 2406.97, 1496.99 )
+
+[node name="AnimatedSprite" parent="WorldBasic/YSort/Enemy/TestingMonster2" index="0"]
+modulate = Color( 0, 0.415686, 1, 1 )
+material = SubResource( 2 )
+
+[node name="Stats" parent="WorldBasic/YSort/Enemy/TestingMonster2" index="3"]
+magical_resistance = 0.15
+physical_resistance = 1.2
+
+[node name="MagicFire" parent="WorldBasic/YSort/Enemy/TestingMonster2" instance=ExtResource( 7 )]
+scale = Vector2( 0.6, 0.6 )
+
+[node name="TestingMonster3" parent="WorldBasic/YSort/Enemy" index="2" instance=ExtResource( 6 )]
+position = Vector2( 1681.8, 1496.03 )
+
+[node name="AnimatedSprite" parent="WorldBasic/YSort/Enemy/TestingMonster3" index="0"]
+material = SubResource( 3 )
+
+[node name="TestingMonster4" parent="WorldBasic/YSort/Enemy" index="3" instance=ExtResource( 6 )]
+position = Vector2( 3280, 1480 )
+
+[node name="AnimatedSprite" parent="WorldBasic/YSort/Enemy/TestingMonster4" index="0"]
+modulate = Color( 0, 0.415686, 1, 1 )
+material = SubResource( 4 )
+
+[node name="Stats" parent="WorldBasic/YSort/Enemy/TestingMonster4" index="3"]
+magical_resistance = 0.15
+physical_resistance = 1.2
+
+[node name="MagicFire" parent="WorldBasic/YSort/Enemy/TestingMonster4" instance=ExtResource( 7 )]
+scale = Vector2( 0.6, 0.6 )
+
+[node name="PassPoint" parent="WorldBasic/YSort" index="5"]
+position = Vector2( 3720, 1600 )
+nextLevel = "res://UI/All_Passed.tscn"
+
+[node name="SavingPoint" parent="WorldBasic/YSort" index="6" instance=ExtResource( 4 )]
+position = Vector2( 552, 1640 )
+
+[node name="Camera2D" parent="WorldBasic" index="3"]
+position = Vector2( 232, 1504 )
+
+[node name="TopLeft" parent="WorldBasic/Camera2D/Limits" index="0"]
+position = Vector2( 56, 16 )
+
+[node name="BottomRight" parent="WorldBasic/Camera2D/Limits" index="1"]
+position = Vector2( 4272, 1744 )
+
+[node name="CollisionShape2D4" parent="WorldBasic/StaticObjects" index="1"]
+position = Vector2( 2032, 1752 )
+
+[node name="CollisionShape2D2" parent="WorldBasic/StaticObjects" index="2"]
+position = Vector2( -48, 208 )
+
+[node name="CollisionShape2D3" parent="WorldBasic/StaticObjects" index="3"]
+position = Vector2( 4336, 208 )
+
+[editable path="WorldBasic"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster2"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster3"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster4"]
+
+[editable path="WorldBasic/Camera2D"]

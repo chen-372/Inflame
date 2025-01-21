@@ -1,0 +1,161 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://World/WorldBasic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Background/SG999_B051_C_Central place.png" type="Texture" id=2]
+[ext_resource path="res://World/SavingPoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy/TestingMonster2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Bat_Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Effect/GlowingDissolve.tres" type="Shader" id=6]
+[ext_resource path="res://Music_Sound/sec sec(loop.wav" type="AudioStream" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 6 )
+shader_param/dissolveRate = 0.0
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 6 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 6 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 6 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 6 )
+shader_param/dissolveRate = 0.0
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 6 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 6 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = Color( 0, 1, 0.486275, 1 )
+
+[node name="World" type="Node2D"]
+
+[node name="WorldBasic" parent="." instance=ExtResource( 1 )]
+local_current_level = "res://Scene/Chapter1/Chapter1_Town.tscn"
+
+[node name="Background" parent="WorldBasic/Backdrop" index="0"]
+modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
+position = Vector2( 2070.54, 888.295 )
+rotation = 0.000398579
+scale = Vector2( 2.291, 1.855 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="WorldBasic/Backdrop" index="1"]
+margin_left = -184.0
+margin_top = 904.0
+margin_right = 70.0
+margin_bottom = 918.0
+rect_scale = Vector2( 4.02012, 4.72288 )
+text = "Use the Dodge and W with A or D to fly!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="WorldBasic/YSort" index="0"]
+position = Vector2( 320, 1584 )
+
+[node name="Enemy" parent="WorldBasic/YSort" index="1"]
+position = Vector2( 8, 8 )
+
+[node name="TestingMonster2" parent="WorldBasic/YSort/Enemy" index="0" instance=ExtResource( 4 )]
+position = Vector2( 3224, 1120 )
+
+[node name="Sprite" parent="WorldBasic/YSort/Enemy/TestingMonster2" index="0"]
+material = SubResource( 1 )
+
+[node name="TestingMonster3" parent="WorldBasic/YSort/Enemy" index="1" instance=ExtResource( 4 )]
+position = Vector2( 1192, 680 )
+
+[node name="Sprite" parent="WorldBasic/YSort/Enemy/TestingMonster3" index="0"]
+material = SubResource( 2 )
+
+[node name="TestingMonster4" parent="WorldBasic/YSort/Enemy" index="2" instance=ExtResource( 4 )]
+position = Vector2( 2448, 496 )
+
+[node name="Sprite" parent="WorldBasic/YSort/Enemy/TestingMonster4" index="0"]
+material = SubResource( 3 )
+
+[node name="Bat_Enemy" parent="WorldBasic/YSort/Enemy" index="3" instance=ExtResource( 5 )]
+position = Vector2( 3968, 1008 )
+
+[node name="AnimatedSprite" parent="WorldBasic/YSort/Enemy/Bat_Enemy" index="0"]
+material = SubResource( 4 )
+frame = 1
+
+[node name="Bat_Enemy2" parent="WorldBasic/YSort/Enemy" index="4" instance=ExtResource( 5 )]
+position = Vector2( 2576, 1000 )
+
+[node name="AnimatedSprite" parent="WorldBasic/YSort/Enemy/Bat_Enemy2" index="0"]
+material = SubResource( 5 )
+frame = 1
+
+[node name="TestingMonster5" parent="WorldBasic/YSort/Enemy" index="5" instance=ExtResource( 4 )]
+position = Vector2( 3920, 1392 )
+
+[node name="Sprite" parent="WorldBasic/YSort/Enemy/TestingMonster5" index="0"]
+material = SubResource( 6 )
+
+[node name="TestingMonster6" parent="WorldBasic/YSort/Enemy" index="6" instance=ExtResource( 4 )]
+position = Vector2( 2560, 1424 )
+
+[node name="Sprite" parent="WorldBasic/YSort/Enemy/TestingMonster6" index="0"]
+material = SubResource( 7 )
+
+[node name="PassPoint" parent="WorldBasic/YSort" index="5"]
+position = Vector2( 4072, 1656 )
+nextLevel = "res://Scene/Chapter1/Chapter1_Town2.tscn"
+
+[node name="SavingPoint" parent="WorldBasic/YSort" index="6" instance=ExtResource( 3 )]
+position = Vector2( 712, 1712 )
+
+[node name="Camera2D" parent="WorldBasic" index="3"]
+position = Vector2( 320, 1584 )
+
+[node name="TopLeft" parent="WorldBasic/Camera2D/Limits" index="0"]
+position = Vector2( 40, 24 )
+
+[node name="BottomRight" parent="WorldBasic/Camera2D/Limits" index="1"]
+position = Vector2( 5088, 1912 )
+
+[node name="CollisionShape2D4" parent="WorldBasic/StaticObjects" index="1"]
+position = Vector2( 2024, 1824 )
+
+[node name="CollisionShape2D3" parent="WorldBasic/StaticObjects" index="3"]
+position = Vector2( 5152, 96 )
+
+[node name="AudioStreamPlayer" parent="WorldBasic" index="6"]
+stream = ExtResource( 7 )
+autoplay = true
+
+[editable path="WorldBasic"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster2"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster3"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster4"]
+
+[editable path="WorldBasic/YSort/Enemy/Bat_Enemy"]
+
+[editable path="WorldBasic/YSort/Enemy/Bat_Enemy2"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster5"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster6"]
+
+[editable path="WorldBasic/Camera2D"]

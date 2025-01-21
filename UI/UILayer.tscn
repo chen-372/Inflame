@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/DodgeCD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Skill1CD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/The_energyUI.tscn" type="PackedScene" id=8]
+
+[node name="UILayer" type="CanvasLayer"]
+
+[node name="HealthUI" parent="." instance=ExtResource( 7 )]
+margin_left = 8.0
+margin_right = 176.0
+rect_scale = Vector2( 2.38488, 2.38488 )
+
+[node name="The_energyUI" parent="." instance=ExtResource( 8 )]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 56.0
+margin_bottom = 88.0
+
+[node name="DodgeCD" parent="." instance=ExtResource( 5 )]
+margin_left = 79.3318
+margin_top = 93.7728
+margin_right = 119.332
+margin_bottom = 133.773
+
+[node name="Skill1CD" parent="." instance=ExtResource( 6 )]
+margin_left = 16.0
+margin_top = 96.0
+margin_right = 56.0
+margin_bottom = 136.0

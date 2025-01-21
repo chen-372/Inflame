@@ -1,0 +1,281 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://World/WorldBasic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemy/TestingMonster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NPC/MagicFire.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Effect/GlowingDissolve.tres" type="Shader" id=4]
+[ext_resource path="res://World/Brick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy/TestingMonster2.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = null
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = null
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 4 )
+shader_param/dissolveRate = null
+shader_param/ColorUniform = null
+
+[node name="World" type="Node2D"]
+
+[node name="WorldBasic" parent="." instance=ExtResource( 1 )]
+
+[node name="Player" parent="WorldBasic/YSort" index="0"]
+position = Vector2( 504, 1560 )
+
+[node name="TestingMonster2" parent="WorldBasic/YSort/Enemy" index="0" instance=ExtResource( 12 )]
+position = Vector2( 1704, 1464 )
+
+[node name="Sprite" parent="WorldBasic/YSort/Enemy/TestingMonster2" index="0"]
+material = SubResource( 1 )
+
+[node name="TestingMonster" parent="WorldBasic/YSort/Enemy" index="1" instance=ExtResource( 2 )]
+position = Vector2( 2184, 1568 )
+
+[node name="AnimatedSprite" parent="WorldBasic/YSort/Enemy/TestingMonster" index="0"]
+material = SubResource( 2 )
+
+[node name="TestingMonster3" parent="WorldBasic/YSort/Enemy" index="2" instance=ExtResource( 2 )]
+position = Vector2( 2656, 1544 )
+
+[node name="AnimatedSprite" parent="WorldBasic/YSort/Enemy/TestingMonster3" index="0"]
+material = SubResource( 3 )
+
+[node name="MagicFire" parent="WorldBasic/YSort/NPC" index="0" instance=ExtResource( 3 )]
+position = Vector2( -1121.09, 1104.91 )
+
+[node name="Brick" parent="WorldBasic/YSort/Texture" index="0" instance=ExtResource( 5 )]
+position = Vector2( 104, 1760 )
+
+[node name="Brick3" parent="WorldBasic/YSort/Texture" index="1" instance=ExtResource( 5 )]
+position = Vector2( 360, 1760 )
+
+[node name="Brick4" parent="WorldBasic/YSort/Texture" index="2" instance=ExtResource( 5 )]
+position = Vector2( 488, 1760 )
+
+[node name="Brick2" parent="WorldBasic/YSort/Texture" index="3" instance=ExtResource( 5 )]
+position = Vector2( 232, 1760 )
+
+[node name="Brick5" parent="WorldBasic/YSort/Texture" index="4" instance=ExtResource( 5 )]
+position = Vector2( 616, 1760 )
+
+[node name="Brick6" parent="WorldBasic/YSort/Texture" index="5" instance=ExtResource( 5 )]
+position = Vector2( 872, 1760 )
+
+[node name="Brick7" parent="WorldBasic/YSort/Texture" index="6" instance=ExtResource( 5 )]
+position = Vector2( 1000, 1760 )
+
+[node name="Brick8" parent="WorldBasic/YSort/Texture" index="7" instance=ExtResource( 5 )]
+position = Vector2( 744, 1760 )
+
+[node name="Brick9" parent="WorldBasic/YSort/Texture" index="8" instance=ExtResource( 5 )]
+position = Vector2( 1128, 1760 )
+
+[node name="Brick10" parent="WorldBasic/YSort/Texture" index="9" instance=ExtResource( 5 )]
+position = Vector2( 1384, 1760 )
+
+[node name="Brick11" parent="WorldBasic/YSort/Texture" index="10" instance=ExtResource( 5 )]
+position = Vector2( 1512, 1760 )
+
+[node name="Brick12" parent="WorldBasic/YSort/Texture" index="11" instance=ExtResource( 5 )]
+position = Vector2( 1256, 1760 )
+
+[node name="Brick52" parent="WorldBasic/YSort/Texture" index="12" instance=ExtResource( 5 )]
+position = Vector2( -1304, 1760 )
+
+[node name="Brick53" parent="WorldBasic/YSort/Texture" index="13" instance=ExtResource( 5 )]
+position = Vector2( -1048, 1760 )
+
+[node name="Brick54" parent="WorldBasic/YSort/Texture" index="14" instance=ExtResource( 5 )]
+position = Vector2( -920, 1760 )
+
+[node name="Brick55" parent="WorldBasic/YSort/Texture" index="15" instance=ExtResource( 5 )]
+position = Vector2( -1176, 1760 )
+
+[node name="Brick71" parent="WorldBasic/YSort/Texture" index="16" instance=ExtResource( 5 )]
+position = Vector2( -1248, 1080 )
+
+[node name="Brick72" parent="WorldBasic/YSort/Texture" index="17" instance=ExtResource( 5 )]
+position = Vector2( -992, 1080 )
+
+[node name="Brick73" parent="WorldBasic/YSort/Texture" index="18" instance=ExtResource( 5 )]
+position = Vector2( -1120, 1080 )
+
+[node name="Brick63" parent="WorldBasic/YSort/Texture" index="19" instance=ExtResource( 5 )]
+position = Vector2( -1816, 1760 )
+
+[node name="Brick64" parent="WorldBasic/YSort/Texture" index="20" instance=ExtResource( 5 )]
+position = Vector2( -1560, 1760 )
+
+[node name="Brick65" parent="WorldBasic/YSort/Texture" index="21" instance=ExtResource( 5 )]
+position = Vector2( -1432, 1760 )
+
+[node name="Brick66" parent="WorldBasic/YSort/Texture" index="22" instance=ExtResource( 5 )]
+position = Vector2( -1688, 1760 )
+
+[node name="Brick56" parent="WorldBasic/YSort/Texture" index="23" instance=ExtResource( 5 )]
+position = Vector2( -792, 1760 )
+
+[node name="Brick57" parent="WorldBasic/YSort/Texture" index="24" instance=ExtResource( 5 )]
+position = Vector2( -536, 1760 )
+
+[node name="Brick58" parent="WorldBasic/YSort/Texture" index="25" instance=ExtResource( 5 )]
+position = Vector2( -408, 1760 )
+
+[node name="Brick59" parent="WorldBasic/YSort/Texture" index="26" instance=ExtResource( 5 )]
+position = Vector2( -664, 1760 )
+
+[node name="Brick60" parent="WorldBasic/YSort/Texture" index="27" instance=ExtResource( 5 )]
+position = Vector2( -280, 1760 )
+
+[node name="Brick67" parent="WorldBasic/YSort/Texture" index="28" instance=ExtResource( 5 )]
+position = Vector2( -1120, 1624 )
+
+[node name="Brick68" parent="WorldBasic/YSort/Texture" index="29" instance=ExtResource( 5 )]
+position = Vector2( -1120, 1488 )
+
+[node name="Brick69" parent="WorldBasic/YSort/Texture" index="30" instance=ExtResource( 5 )]
+position = Vector2( -1120, 1352 )
+
+[node name="Brick70" parent="WorldBasic/YSort/Texture" index="31" instance=ExtResource( 5 )]
+position = Vector2( -1120, 1216 )
+
+[node name="Brick61" parent="WorldBasic/YSort/Texture" index="32" instance=ExtResource( 5 )]
+position = Vector2( -24, 1760 )
+
+[node name="Brick62" parent="WorldBasic/YSort/Texture" index="33" instance=ExtResource( 5 )]
+position = Vector2( -152, 1760 )
+
+[node name="Brick13" parent="WorldBasic/YSort/Texture" index="34" instance=ExtResource( 5 )]
+position = Vector2( 1640, 1760 )
+
+[node name="Brick14" parent="WorldBasic/YSort/Texture" index="35" instance=ExtResource( 5 )]
+position = Vector2( 1896, 1760 )
+
+[node name="Brick15" parent="WorldBasic/YSort/Texture" index="36" instance=ExtResource( 5 )]
+position = Vector2( 2024, 1760 )
+
+[node name="Brick16" parent="WorldBasic/YSort/Texture" index="37" instance=ExtResource( 5 )]
+position = Vector2( 1768, 1760 )
+
+[node name="Brick17" parent="WorldBasic/YSort/Texture" index="38" instance=ExtResource( 5 )]
+position = Vector2( 2152, 1760 )
+
+[node name="Brick18" parent="WorldBasic/YSort/Texture" index="39" instance=ExtResource( 5 )]
+position = Vector2( 2408, 1760 )
+
+[node name="Brick19" parent="WorldBasic/YSort/Texture" index="40" instance=ExtResource( 5 )]
+position = Vector2( 2536, 1760 )
+
+[node name="Brick20" parent="WorldBasic/YSort/Texture" index="41" instance=ExtResource( 5 )]
+position = Vector2( 2280, 1760 )
+
+[node name="Brick21" parent="WorldBasic/YSort/Texture" index="42" instance=ExtResource( 5 )]
+position = Vector2( 2664, 1760 )
+
+[node name="Brick22" parent="WorldBasic/YSort/Texture" index="43" instance=ExtResource( 5 )]
+position = Vector2( 2920, 1760 )
+
+[node name="Brick23" parent="WorldBasic/YSort/Texture" index="44" instance=ExtResource( 5 )]
+position = Vector2( 3048, 1760 )
+
+[node name="Brick24" parent="WorldBasic/YSort/Texture" index="45" instance=ExtResource( 5 )]
+position = Vector2( 2792, 1760 )
+
+[node name="Brick25" parent="WorldBasic/YSort/Texture" index="46" instance=ExtResource( 5 )]
+position = Vector2( 3176, 1760 )
+
+[node name="Brick26" parent="WorldBasic/YSort/Texture" index="47" instance=ExtResource( 5 )]
+position = Vector2( 3432, 1760 )
+
+[node name="Brick27" parent="WorldBasic/YSort/Texture" index="48" instance=ExtResource( 5 )]
+position = Vector2( 3560, 1760 )
+
+[node name="Brick28" parent="WorldBasic/YSort/Texture" index="49" instance=ExtResource( 5 )]
+position = Vector2( 3304, 1760 )
+
+[node name="Brick29" parent="WorldBasic/YSort/Texture" index="50" instance=ExtResource( 5 )]
+position = Vector2( 3688, 1760 )
+
+[node name="Brick30" parent="WorldBasic/YSort/Texture" index="51" instance=ExtResource( 5 )]
+position = Vector2( 3944, 1760 )
+
+[node name="Brick31" parent="WorldBasic/YSort/Texture" index="52" instance=ExtResource( 5 )]
+position = Vector2( 4072, 1760 )
+
+[node name="Brick33" parent="WorldBasic/YSort/Texture" index="53" instance=ExtResource( 5 )]
+position = Vector2( 4200, 1760 )
+
+[node name="Brick32" parent="WorldBasic/YSort/Texture" index="54" instance=ExtResource( 5 )]
+position = Vector2( 3816, 1760 )
+
+[node name="Brick34" parent="WorldBasic/YSort/Texture" index="55" instance=ExtResource( 5 )]
+position = Vector2( 2056, 1624 )
+
+[node name="Brick35" parent="WorldBasic/YSort/Texture" index="56" instance=ExtResource( 5 )]
+position = Vector2( 2040, 1472 )
+
+[node name="Brick36" parent="WorldBasic/YSort/Texture" index="57" instance=ExtResource( 5 )]
+position = Vector2( 2112, 1344 )
+
+[node name="Brick37" parent="WorldBasic/YSort/Texture" index="58" instance=ExtResource( 5 )]
+position = Vector2( 2272, 1344 )
+
+[node name="Brick38" parent="WorldBasic/YSort/Texture" index="59" instance=ExtResource( 5 )]
+position = Vector2( 2304, 1488 )
+
+[node name="Brick39" parent="WorldBasic/YSort/Texture" index="60" instance=ExtResource( 5 )]
+position = Vector2( 2312, 1632 )
+
+[node name="Brick40" parent="WorldBasic/YSort/Texture" index="61" instance=ExtResource( 5 )]
+position = Vector2( 2600, 1320 )
+
+[node name="Brick41" parent="WorldBasic/YSort/Texture" index="62" instance=ExtResource( 5 )]
+position = Vector2( 2792, 1456 )
+
+[node name="Brick42" parent="WorldBasic/YSort/Texture" index="63" instance=ExtResource( 5 )]
+position = Vector2( 2784, 1608 )
+
+[node name="Brick43" parent="WorldBasic/YSort/Texture" index="64" instance=ExtResource( 5 )]
+position = Vector2( 2736, 1320 )
+
+[node name="Brick44" parent="WorldBasic/YSort/Texture" index="65" instance=ExtResource( 5 )]
+position = Vector2( 2520, 1464 )
+
+[node name="Brick45" parent="WorldBasic/YSort/Texture" index="66" instance=ExtResource( 5 )]
+position = Vector2( 2528, 1616 )
+
+[node name="PassPoint" parent="WorldBasic/YSort" index="5"]
+visible = false
+position = Vector2( 5603.28, 1274.37 )
+
+[node name="Camera2D" parent="WorldBasic" index="3"]
+position = Vector2( 504, 1560 )
+
+[node name="TopLeft" parent="WorldBasic/Camera2D/Limits" index="0"]
+position = Vector2( -1856, 16 )
+
+[node name="BottomRight" parent="WorldBasic/Camera2D/Limits" index="1"]
+position = Vector2( 4280, 1848 )
+
+[node name="CollisionShape2D2" parent="WorldBasic/StaticObjects" index="2"]
+position = Vector2( -1960, 208 )
+
+[node name="LevelTransition" parent="WorldBasic" index="8"]
+visible = false
+
+[editable path="WorldBasic"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster2"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster"]
+
+[editable path="WorldBasic/YSort/Enemy/TestingMonster3"]
+
+[editable path="WorldBasic/Camera2D"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/WorldBasic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Background/SG999_B061_C_Village_EXT_Street 3.png" type="Texture" id=2]
+[ext_resource path="res://World/Enterable_Door.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 170.775, 112 )
+
+[node name="World" type="Node2D"]
+
+[node name="WorldBasic" parent="." instance=ExtResource( 1 )]
+local_current_level = "res://Scene/Chapter1/Chapter1_Town2.tscn"
+
+[node name="Background" parent="WorldBasic/Backdrop" index="0"]
+modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
+position = Vector2( 1888.59, 741.496 )
+scale = Vector2( 2.07392, 2.25175 )
+texture = ExtResource( 2 )
+
+[node name="Player" parent="WorldBasic/YSort" index="0"]
+position = Vector2( 2672, 1368 )
+
+[node name="PassPoint" parent="WorldBasic/YSort" index="5"]
+position = Vector2( 4312, 1464 )
+nextLevel = "res://Scene/Chapter1/Chapter1_Forest.tscn"
+
+[node name="Camera2D" parent="WorldBasic" index="3"]
+position = Vector2( 2672, 1368 )
+
+[node name="TopLeft" parent="WorldBasic/Camera2D/Limits" index="0"]
+position = Vector2( 912, 16 )
+
+[node name="BottomRight" parent="WorldBasic/Camera2D/Limits" index="1"]
+position = Vector2( 4728, 1656 )
+
+[node name="CollisionShape2D4" parent="WorldBasic/StaticObjects" index="1"]
+position = Vector2( 1992, 1616 )
+
+[node name="CollisionShape2D2" parent="WorldBasic/StaticObjects" index="2"]
+position = Vector2( 1360, 288 )
+
+[node name="CollisionShape2D3" parent="WorldBasic/StaticObjects" index="3"]
+position = Vector2( 4752, 232 )
+
+[node name="Enterable_Door" parent="WorldBasic/Areas" index="0" instance=ExtResource( 3 )]
+position = Vector2( 2560, 1080 )
+entered_level = "res://Scene/Chapter1/Chapte1_VillageHouse.tscn"
+
+[node name="CollisionShape2D" parent="WorldBasic/Areas/Enterable_Door/PlayerDetectionZone" index="0"]
+position = Vector2( 224, 192 )
+shape = SubResource( 1 )
+
+[node name="Label" parent="WorldBasic/Areas/Enterable_Door" index="1"]
+margin_left = -8.0
+margin_top = -96.0
+margin_right = 79.0
+margin_bottom = -65.0
+rect_scale = Vector2( 5.61251, 5.28552 )
+custom_colors/font_color = Color( 0.968627, 1, 0, 1 )
+text = "Village House
+     [Enter]"
+
+[editable path="WorldBasic"]
+
+[editable path="WorldBasic/Camera2D"]
+
+[editable path="WorldBasic/Areas/Enterable_Door"]
+
+[editable path="WorldBasic/Areas/Enterable_Door/PlayerDetectionZone"]

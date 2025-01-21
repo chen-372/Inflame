@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/MagiUIfull.png" type="Texture" id=1]
+[ext_resource path="res://UI/MagiUI_empty.png" type="Texture" id=2]
+[ext_resource path="res://UI/The_energyUI.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[node name="The_energyUI" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.23848, 0.146173 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyUIEmpty" type="TextureRect" parent="."]
+modulate = Color( 0.972549, 0.0431373, 0.0431373, 1 )
+margin_right = 1341.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.982989, 0.982989 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyUIFull" type="TextureRect" parent="."]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 24.0
+margin_bottom = 186.0
+rect_scale = Vector2( 0.777206, 0.887499 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 989.542, 94.5272 )
+scale = Vector2( 0.500002, 5.13091 )
+texture = ExtResource( 4 )

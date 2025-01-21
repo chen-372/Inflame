@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Enemy/PlayerDetectionZone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Stone1.png" type="Texture" id=2]
+[ext_resource path="res://Background/ldjfjviudi.png" type="Texture" id=3]
+[ext_resource path="res://World/SavingPoint.gd" type="Script" id=4]
+[ext_resource path="res://NPC/MagicFire.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 24.0
+height = 348.0
+
+[node name="SavingPoint" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.831373, 0.533333, 0.533333, 1 )
+position = Vector2( -24, -248 )
+texture = ExtResource( 3 )
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+position = Vector2( -8, -248 )
+shape = SubResource( 1 )
+
+[node name="Stone1" type="Sprite" parent="."]
+modulate = Color( 0.796078, 0.133333, 0.133333, 1 )
+position = Vector2( -56, -64 )
+scale = Vector2( 1.1443, 1.35345 )
+texture = ExtResource( 2 )
+
+[node name="Stone2" type="Sprite" parent="."]
+modulate = Color( 0.796078, 0.133333, 0.133333, 1 )
+position = Vector2( 64, -64 )
+scale = Vector2( 1.0906, 1.34483 )
+texture = ExtResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -136 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MagicFire" parent="." instance=ExtResource( 5 )]
+position = Vector2( -12.5457, -362.902 )
+
+[editable path="PlayerDetectionZone"]
+
+[editable path="MagicFire"]

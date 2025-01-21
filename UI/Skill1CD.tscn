@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/skill1CDsign.gd" type="Script" id=2]
+[ext_resource path="res://UI/Skill1CD_Sign.png" type="Texture" id=3]
+
+[node name="Skill1CD" type="Control"]
+margin_right = 96.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 0.780392, 0.909804, 1 )
+margin_top = 1.52588e-05
+rect_scale = Vector2( 0.115259, 0.117035 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="TextureRect"]
+modulate = Color( 0.14902, 0.14902, 0.14902, 0.717647 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+fill_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureRect"]
+margin_left = 99.906
+margin_top = 286.032
+margin_right = 143.906
+margin_bottom = 300.032
+rect_scale = Vector2( 6.7885, 6.7885 )
+text = "0.0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

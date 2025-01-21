@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Enemy/PlayerDetectionZone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/PassPoint.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34.9493, 488 )
+
+[node name="PassPoint" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -24 )
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+position = Vector2( 0, 24 )
+shape = SubResource( 1 )
+
+[editable path="PlayerDetectionZone"]

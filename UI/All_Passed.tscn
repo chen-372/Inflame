@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/All_Passed.gd" type="Script" id=1]
+[ext_resource path="res://Background/PreChapter.jpg" type="Texture" id=2]
+[ext_resource path="res://Music_Sound/allPassed.wav" type="AudioStream" id=3]
+[ext_resource path="res://Background/main_UI_dis2.jpg" type="Texture" id=4]
+
+[node name="All_Passed" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="PreChapter" type="Sprite" parent="."]
+modulate = Color( 0.929412, 0.882353, 0.760784, 1 )
+position = Vector2( 472, 264 )
+scale = Vector2( -0.646161, 0.1803 )
+texture = ExtResource( 2 )
+
+[node name="main_UI_dis2" type="Sprite" parent="."]
+position = Vector2( 168, 208 )
+scale = Vector2( 0.291736, 0.291736 )
+texture = ExtResource( 4 )
+
+[node name="main_UI_dis3" type="Sprite" parent="."]
+position = Vector2( 792, 208 )
+scale = Vector2( 0.291736, 0.291736 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = -824.0
+margin_top = -544.0
+margin_right = 135.0
+margin_bottom = -2.00006
+rect_scale = Vector2( 2.71545, 3.01162 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "Congratulations!
+You have WON
+
+
+
+
+
+Press [Enter] to return to main menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
