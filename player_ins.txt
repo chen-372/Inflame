@@ -1,0 +1,38 @@
+	
+			 Move
+			 [A/D]
+	
+			 Jump
+			[Space]
+
+			 Attack
+			    [J]
+
+		Dash: Dash to avoid damage
+		   	    [L]
+	   
+		   Dash up/down/left/right
+		            [L + W/S/A/D]
+
+	              Absorption: Take in energy fog
+	                        from dead enemy to
+		     1. Enhance your abilities,
+	     	     2. Refresh skill CDs，
+		     3. Attack to restore health.
+		               [Automatic]
+  
+         Skill1: Spawn magic bullets to chase and damage the enemy, 
+             player bullets and enemy bullets can cancel each other.
+		                      [F]
+
+          Skill1-Gather: Gather all existing bullets and shoot forward,
+those bullets can only damage enemy after moving for certain amount of time.
+         (if bullets are more than 7, then release a large shockwave!) 
+			      [Q]
+	
+    Skill1-Follow: Call all exisiting bullets to return and wander around player,
+          bullets that are following player can also be used by Skill1-Gather.
+			       [E]	   
+
+	      True Damage: Triggered by high damage.
+		               [Automatic]

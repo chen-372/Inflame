@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Enemy/Monster2.png" type="Texture" id=1]
+[ext_resource path="res://Enemy/TestingMonster.gd" type="Script" id=3]
+[ext_resource path="res://Enemy/SoftCollision.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/PlayerDetectionZone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy/WanderController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Atta_Detect/Hitbox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy/Stats.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Atta_Detect/Hurtbox.tscn" type="PackedScene" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 52.088
+height = 104.177
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 57.3321
+height = 98.1842
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 156.869
+height = 984.567
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 100.809
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 45.8914
+height = 117.186
+
+[node name="TestingMonster" type="KinematicBody2D"]
+collision_layer = 16
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 1 )
+animation = "Run"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 9 )]
+visible = false
+collision_layer = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 3 )
+
+[node name="Stats" parent="." instance=ExtResource( 8 )]
+max_health = 14.0
+magical_resistance = 1.0
+physical_resistance = 1.0
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 0.462745 )
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color( 1, 1, 1, 0.309804 )
+rotation = 1.56859
+shape = SubResource( 4 )
+
+[node name="SoftCollision" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+shape = SubResource( 5 )
+
+[node name="WanderController" parent="." instance=ExtResource( 6 )]
+
+[node name="Hitbox" parent="." instance=ExtResource( 7 )]
+visible = false
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 6 )
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+
+[editable path="Hurtbox"]
+
+[editable path="PlayerDetectionZone"]
+
+[editable path="SoftCollision"]
+
+[editable path="Hitbox"]

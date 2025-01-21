@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Atta_Detect/Hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Effect/sp_bulleteffect/sp_bullet.gd" type="Script" id=2]
+[ext_resource path="res://Effect/sp_bulleteffect/spotlight_2.png" type="Texture" id=3]
+[ext_resource path="res://Effect/sp_bulleteffect/Smoketrail.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Gradient" id=1]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.0338983, 0.854237, 1 )
+colors = PoolColorArray( 0.0431373, 0.368627, 0.705882, 0.184314, 0.192157, 0.00392157, 1, 0, 1, 0.984434, 0.0038023, 1, 1, 0, 0, 0.733333 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Animation" id=3]
+resource_name = "explosion"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("ExplosionSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 2.60027
+
+[node name="Bullet" type="Area2D"]
+scale = Vector2( 3, 3 )
+linear_damp = 0.0
+angular_damp = 0.0
+collision_layer = 0
+script = ExtResource( 2 )
+speed = 22.0
+
+[node name="Smoketrail" parent="." instance=ExtResource( 4 )]
+width = 60.0
+default_color = Color( 1, 1, 1, 1 )
+wildness = 20.0
+gradient_col = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="ExplosionSprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/explosion = SubResource( 3 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 1 )]
+collision_mask = 8
+is_sp_bullet = true
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 4 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+
+[editable path="Hitbox"]

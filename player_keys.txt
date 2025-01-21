@@ -1,0 +1,15 @@
+Player1:
+Move - ADWS
+Jump - Space
+Attack - J
+Dash - L
+Skill1 - F
+Skill1Shoot - Q
+Skill1Follow - E
+
+Player2:
+Move - Arrow keys
+Jump - Up arrow keys
+Attack - /
+Dash - Shift
+Skill - '

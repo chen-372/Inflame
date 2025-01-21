@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 tint_color: hint_color = vec4(1.0);
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	float grey = (col.r + col.g + col.b) / 3.0;
+	grey = smoothstep(0.3, 0.6, grey) * 0.4 + 0.6;
+	COLOR = vec4(grey * tint_color.rgb, col.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/tint_color = Color( 1, 0.882353, 0.733333, 1 )
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="MotionDissolve" type="AnimatedSprite"]
+material = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fadeout"
+anims/fadeout = SubResource( 3 )
